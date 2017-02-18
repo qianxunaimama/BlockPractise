@@ -7,23 +7,31 @@
 //
 
 #import "ViewController.h"
+#import "BaseView.h"
 
 @interface ViewController ()
 
+@property(nonatomic,strong) BaseView *baseView;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+   
+    [self.view addSubview:self.baseView];
+    
 }
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(BaseView *)baseView{
+    
+    if (!_baseView) {
+        _baseView = [[BaseView alloc]initWithFrame:self.view.frame andClickBlock:^(id sender) {
+            
+            NSLog(@"我有一头小毛驴，我从来都不骑");
+        }];
+    }
+    return _baseView;
 }
-
 
 @end

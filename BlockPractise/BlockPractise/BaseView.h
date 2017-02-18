@@ -12,6 +12,6 @@ typedef void(^ButtonBlock)(id sender);
 
 @interface BaseView : UIView
 
-- (void)addButtonAction:(ButtonBlock) block;
+- (instancetype)initWithFrame:(CGRect)frame andClickBlock:(ButtonBlock)buttonClickBlock;
 
 @end
